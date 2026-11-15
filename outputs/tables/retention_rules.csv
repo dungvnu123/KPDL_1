@@ -1,0 +1,25 @@
+﻿rule,antecedents,consequents,antecedent_len,support,confidence,lift,leverage,conviction
+"{MonthlyCharges=Low, PhoneService=Yes, TotalCharges=Medium} → {Churn=No}","MonthlyCharges=Low, PhoneService=Yes, TotalCharges=Medium",Churn=No,3,0.1025,0.9743,1.327,0.0253,10.3516
+{Contract=Two year} → {Churn=No},Contract=Two year,Churn=No,1,0.2328,0.9715,1.3232,0.0569,9.3302
+"{InternetService=No, Partner=Yes} → {Churn=No}","InternetService=No, Partner=Yes",Churn=No,2,0.1001,0.9604,1.3081,0.0236,6.7179
+"{InternetService=DSL, TenureGroup=49-72m} → {Churn=No}","InternetService=DSL, TenureGroup=49-72m",Churn=No,2,0.1072,0.9569,1.3032,0.0249,6.16
+"{InternetService=DSL, TotalCharges=High} → {Churn=No}","InternetService=DSL, TotalCharges=High",Churn=No,2,0.1113,0.9549,1.3005,0.0257,5.8904
+"{MonthlyCharges=Low, TotalCharges=Medium} → {Churn=No}","MonthlyCharges=Low, TotalCharges=Medium",Churn=No,2,0.1288,0.9447,1.2867,0.0287,4.8092
+"{PaperlessBilling=No, TenureGroup=49-72m} → {Churn=No}","PaperlessBilling=No, TenureGroup=49-72m",Churn=No,2,0.1212,0.9446,1.2865,0.027,4.7948
+"{Dependents=Yes, TenureGroup=49-72m} → {Churn=No}","Dependents=Yes, TenureGroup=49-72m",Churn=No,2,0.1139,0.939,1.279,0.0248,4.3599
+"{MonthlyCharges=Low, Partner=Yes, PhoneService=Yes} → {Churn=No}","MonthlyCharges=Low, Partner=Yes, PhoneService=Yes",Churn=No,3,0.1091,0.9377,1.2771,0.0237,4.263
+"{TechSupport=Yes, TenureGroup=49-72m} → {Churn=No}","TechSupport=Yes, TenureGroup=49-72m",Churn=No,2,0.1399,0.9345,1.2728,0.03,4.0561
+"{OnlineSecurity=Yes, TenureGroup=49-72m} → {Churn=No}","OnlineSecurity=Yes, TenureGroup=49-72m",Churn=No,2,0.1394,0.9333,1.2712,0.0297,3.9868
+"{OnlineSecurity=Yes, TechSupport=Yes, TotalCharges=High} → {Churn=No}","OnlineSecurity=Yes, TechSupport=Yes, TotalCharges=High",Churn=No,3,0.1051,0.9319,1.2693,0.0223,3.9031
+"{PaymentMethod=Bank transfer (automatic), TenureGroup=49-72m} → {Churn=No}","PaymentMethod=Bank transfer (automatic), TenureGroup=49-72m",Churn=No,2,0.1004,0.9265,1.2619,0.0208,3.6166
+{InternetService=No} → {Churn=No},InternetService=No,Churn=No,1,0.2001,0.9257,1.2607,0.0414,3.5752
+"{Dependents=Yes, MonthlyCharges=Low} → {Churn=No}","Dependents=Yes, MonthlyCharges=Low",Churn=No,2,0.1106,0.9218,1.2555,0.0225,3.3988
+"{InternetService=DSL, OnlineBackup=Yes, PhoneService=Yes} → {Churn=No}","InternetService=DSL, OnlineBackup=Yes, PhoneService=Yes",Churn=No,3,0.104,0.9183,1.2508,0.0208,3.2548
+"{InternetService=DSL, Partner=Yes, PhoneService=Yes} → {Churn=No}","InternetService=DSL, Partner=Yes, PhoneService=Yes",Churn=No,3,0.1106,0.9099,1.2393,0.0214,2.9512
+"{OnlineSecurity=Yes, TechSupport=Yes} → {Churn=No}","OnlineSecurity=Yes, TechSupport=Yes",Churn=No,2,0.1418,0.9097,1.239,0.0273,2.9424
+"{OnlineSecurity=Yes, TotalCharges=High} → {Churn=No}","OnlineSecurity=Yes, TotalCharges=High",Churn=No,2,0.1588,0.9052,1.2329,0.03,2.8032
+{TenureGroup=49-72m} → {Churn=No},TenureGroup=49-72m,Churn=No,1,0.2881,0.9049,1.2324,0.0543,2.7939
+"{InternetService=DSL, OnlineSecurity=Yes} → {Churn=No}","InternetService=DSL, OnlineSecurity=Yes",Churn=No,2,0.1513,0.9048,1.2323,0.0285,2.7907
+"{InternetService=DSL, TechSupport=Yes} → {Churn=No}","InternetService=DSL, TechSupport=Yes",Churn=No,2,0.1507,0.9029,1.2297,0.0282,2.7371
+"{MonthlyCharges=Low, Partner=Yes} → {Churn=No}","MonthlyCharges=Low, Partner=Yes",Churn=No,2,0.1307,0.9019,1.2283,0.0243,2.7083
+"{TechSupport=Yes, TotalCharges=High} → {Churn=No}","TechSupport=Yes, TotalCharges=High",Churn=No,2,0.1633,0.9018,1.2283,0.0303,2.7068

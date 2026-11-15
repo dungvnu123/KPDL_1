@@ -1,0 +1,11 @@
+﻿rule,customers,target_hits,target_rate,cumulative_recall
+"{MonthlyCharges=High, MultipleLines=Yes, PaperlessBilling=Yes, TenureGroup=0-12m} → {Churn=Yes}",179,150,0.838,0.0803
+"{InternetService=Fiber optic, MultipleLines=Yes, PaperlessBilling=Yes, TotalCharges=Low} → {Churn=Yes}",217,177,0.8157,0.1241
+"{MonthlyCharges=High, PaperlessBilling=Yes, TotalCharges=Low} → {Churn=Yes}",199,162,0.8141,0.16
+"{MonthlyCharges=High, MultipleLines=Yes, TenureGroup=0-12m} → {Churn=Yes}",213,173,0.8122,0.1723
+"{InternetService=Fiber optic, PaperlessBilling=Yes, StreamingTV=Yes, TotalCharges=Low} → {Churn=Yes}",189,153,0.8095,0.191
+"{InternetService=Fiber optic, OnlineBackup=No, StreamingTV=Yes, TotalCharges=Low} → {Churn=Yes}",183,148,0.8087,0.1996
+"{MonthlyCharges=High, OnlineSecurity=No, TotalCharges=Low} → {Churn=Yes}",216,173,0.8009,0.2022
+"{InternetService=Fiber optic, MultipleLines=Yes, TotalCharges=Low} → {Churn=Yes}",258,205,0.7946,0.2108
+"{Dependents=No, MonthlyCharges=High, StreamingTV=Yes, TenureGroup=0-12m} → {Churn=Yes}",235,186,0.7915,0.2215
+"{InternetService=Fiber optic, StreamingMovies=Yes, TotalCharges=Low} → {Churn=Yes}",215,170,0.7907,0.237
