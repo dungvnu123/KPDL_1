@@ -1,0 +1,142 @@
+﻿itemsets,length,customers,support
+"InternetService=Fiber optic, PhoneService=Yes",2,3096,0.4402730375426621
+"MultipleLines=Yes, PhoneService=Yes",2,2967,0.42192832764505117
+"PhoneService=Yes, StreamingMovies=Yes",2,2433,0.3459897610921502
+"PhoneService=Yes, StreamingTV=Yes",2,2420,0.3441410693970421
+"OnlineBackup=Yes, PhoneService=Yes",2,2139,0.30418088737201365
+"DeviceProtection=Yes, PhoneService=Yes",2,2115,0.3007679180887372
+"StreamingMovies=Yes, StreamingTV=Yes",2,1939,0.2757394766780432
+"InternetService=Fiber optic, MultipleLines=Yes",2,1938,0.27559726962457337
+"InternetService=Fiber optic, MultipleLines=Yes, PhoneService=Yes",3,1938,0.27559726962457337
+"PhoneService=Yes, TechSupport=Yes",2,1753,0.24928896473265075
+"InternetService=Fiber optic, StreamingMovies=Yes",2,1751,0.24900455062571103
+"InternetService=Fiber optic, PhoneService=Yes, StreamingMovies=Yes",3,1751,0.24900455062571103
+"InternetService=Fiber optic, StreamingTV=Yes",2,1750,0.24886234357224118
+"InternetService=Fiber optic, PhoneService=Yes, StreamingTV=Yes",3,1750,0.24886234357224118
+"PhoneService=Yes, StreamingMovies=Yes, StreamingTV=Yes",3,1739,0.2472980659840728
+"InternetService=DSL, PhoneService=Yes",2,1736,0.24687144482366324
+"OnlineSecurity=Yes, PhoneService=Yes",2,1734,0.24658703071672355
+"DeviceProtection=Yes, StreamingMovies=Yes",2,1594,0.22667804323094426
+"MultipleLines=Yes, StreamingMovies=Yes",2,1591,0.2262514220705347
+"MultipleLines=Yes, PhoneService=Yes, StreamingMovies=Yes",3,1591,0.2262514220705347
+"MultipleLines=Yes, StreamingTV=Yes",2,1576,0.2241183162684869
+"MultipleLines=Yes, PhoneService=Yes, StreamingTV=Yes",3,1576,0.2241183162684869
+"DeviceProtection=Yes, StreamingTV=Yes",2,1563,0.22226962457337884
+"DeviceProtection=Yes, PhoneService=Yes, StreamingMovies=Yes",3,1408,0.20022753128555176
+"DeviceProtection=Yes, PhoneService=Yes, StreamingTV=Yes",3,1394,0.19823663253697382
+"OnlineBackup=Yes, StreamingTV=Yes",2,1390,0.19766780432309441
+"OnlineBackup=Yes, StreamingMovies=Yes",2,1389,0.19752559726962457
+"DeviceProtection=Yes, InternetService=Fiber optic",2,1357,0.1929749715585893
+"MultipleLines=Yes, OnlineBackup=Yes",2,1357,0.1929749715585893
+"DeviceProtection=Yes, InternetService=Fiber optic, PhoneService=Yes",3,1357,0.1929749715585893
+"MultipleLines=Yes, OnlineBackup=Yes, PhoneService=Yes",3,1357,0.1929749715585893
+"DeviceProtection=Yes, MultipleLines=Yes",2,1353,0.1924061433447099
+"DeviceProtection=Yes, MultipleLines=Yes, PhoneService=Yes",3,1353,0.1924061433447099
+"InternetService=Fiber optic, OnlineBackup=Yes",2,1343,0.19098407281001137
+"InternetService=Fiber optic, OnlineBackup=Yes, PhoneService=Yes",3,1343,0.19098407281001137
+"DeviceProtection=Yes, OnlineBackup=Yes",2,1315,0.18700227531285551
+"InternetService=Fiber optic, StreamingMovies=Yes, StreamingTV=Yes",3,1310,0.18629124004550626
+"InternetService=Fiber optic, PhoneService=Yes, StreamingMovies=Yes, StreamingTV=Yes",4,1310,0.18629124004550626
+"OnlineBackup=Yes, PhoneService=Yes, StreamingTV=Yes",3,1255,0.1784698521046644
+"DeviceProtection=Yes, StreamingMovies=Yes, StreamingTV=Yes",3,1253,0.17818543799772468
+"OnlineBackup=Yes, PhoneService=Yes, StreamingMovies=Yes",3,1247,0.17733219567690559
+"InternetService=Fiber optic, MultipleLines=Yes, StreamingMovies=Yes",3,1229,0.17477246871444824
+"InternetService=Fiber optic, MultipleLines=Yes, PhoneService=Yes, StreamingMovies=Yes",4,1229,0.17477246871444824
+"StreamingMovies=Yes, TechSupport=Yes",2,1228,0.1746302616609784
+"InternetService=Fiber optic, MultipleLines=Yes, StreamingTV=Yes",3,1226,0.17434584755403867
+"InternetService=Fiber optic, MultipleLines=Yes, PhoneService=Yes, StreamingTV=Yes",4,1226,0.17434584755403867
+"StreamingTV=Yes, TechSupport=Yes",2,1215,0.1727815699658703
+"MultipleLines=Yes, StreamingMovies=Yes, StreamingTV=Yes",3,1209,0.1719283276450512
+"MultipleLines=Yes, PhoneService=Yes, StreamingMovies=Yes, StreamingTV=Yes",4,1209,0.1719283276450512
+"DeviceProtection=Yes, TechSupport=Yes",2,1206,0.17150170648464164
+"InternetService=DSL, OnlineSecurity=Yes",2,1176,0.16723549488054607
+"InternetService=DSL, TechSupport=Yes",2,1174,0.16695108077360638
+"DeviceProtection=Yes, OnlineBackup=Yes, PhoneService=Yes",3,1167,0.1659556313993174
+"OnlineBackup=Yes, TechSupport=Yes",2,1149,0.16339590443686006
+"OnlineBackup=Yes, OnlineSecurity=Yes",2,1123,0.15969852104664392
+"DeviceProtection=Yes, PhoneService=Yes, StreamingMovies=Yes, StreamingTV=Yes",4,1115,0.1585608646188851
+"DeviceProtection=Yes, OnlineSecurity=Yes",2,1108,0.15756541524459614
+"OnlineSecurity=Yes, TechSupport=Yes",2,1096,0.1558589306029579
+"PhoneService=Yes, StreamingMovies=Yes, TechSupport=Yes",3,1096,0.1558589306029579
+"PhoneService=Yes, StreamingTV=Yes, TechSupport=Yes",3,1084,0.1541524459613197
+"InternetService=DSL, OnlineBackup=Yes",2,1082,0.15386803185437997
+"OnlineSecurity=Yes, StreamingMovies=Yes",2,1073,0.1525881683731513
+"DeviceProtection=Yes, InternetService=DSL",2,1061,0.1508816837315131
+"OnlineSecurity=Yes, StreamingTV=Yes",2,1046,0.1487485779294653
+"OnlineBackup=Yes, StreamingMovies=Yes, StreamingTV=Yes",3,1044,0.14846416382252559
+"DeviceProtection=Yes, PhoneService=Yes, TechSupport=Yes",3,1041,0.14803754266211605
+"MultipleLines=Yes, TechSupport=Yes",2,1019,0.1449089874857793
+"MultipleLines=Yes, PhoneService=Yes, TechSupport=Yes",3,1019,0.1449089874857793
+"OnlineBackup=Yes, PhoneService=Yes, TechSupport=Yes",3,1013,0.14405574516496017
+"MultipleLines=Yes, OnlineSecurity=Yes",2,1005,0.14291808873720135
+"MultipleLines=Yes, OnlineSecurity=Yes, PhoneService=Yes",3,1005,0.14291808873720135
+"DeviceProtection=Yes, MultipleLines=Yes, StreamingMovies=Yes",3,995,0.14149601820250285
+"DeviceProtection=Yes, MultipleLines=Yes, PhoneService=Yes, StreamingMovies=Yes",4,995,0.14149601820250285
+"OnlineBackup=Yes, OnlineSecurity=Yes, PhoneService=Yes",3,990,0.1407849829351536
+"DeviceProtection=Yes, MultipleLines=Yes, StreamingTV=Yes",3,988,0.14050056882821388
+"DeviceProtection=Yes, MultipleLines=Yes, PhoneService=Yes, StreamingTV=Yes",4,988,0.14050056882821388
+"InternetService=DSL, StreamingMovies=Yes",2,980,0.13936291240045506
+"DeviceProtection=Yes, InternetService=Fiber optic, StreamingMovies=Yes",3,967,0.137514220705347
+"DeviceProtection=Yes, InternetService=Fiber optic, PhoneService=Yes, StreamingMovies=Yes",4,967,0.137514220705347
+"DeviceProtection=Yes, InternetService=Fiber optic, MultipleLines=Yes",3,965,0.13722980659840728
+"DeviceProtection=Yes, InternetService=Fiber optic, StreamingTV=Yes",3,965,0.13722980659840728
+"InternetService=Fiber optic, MultipleLines=Yes, OnlineBackup=Yes",3,965,0.13722980659840728
+"DeviceProtection=Yes, InternetService=Fiber optic, MultipleLines=Yes, PhoneService=Yes",4,965,0.13722980659840728
+"DeviceProtection=Yes, InternetService=Fiber optic, PhoneService=Yes, StreamingTV=Yes",4,965,0.13722980659840728
+"InternetService=Fiber optic, MultipleLines=Yes, OnlineBackup=Yes, PhoneService=Yes",4,965,0.13722980659840728
+"InternetService=Fiber optic, MultipleLines=Yes, StreamingMovies=Yes, StreamingTV=Yes",4,961,0.13666097838452787
+"InternetService=DSL, StreamingTV=Yes",2,953,0.13552332195676906
+"DeviceProtection=Yes, OnlineSecurity=Yes, PhoneService=Yes",3,952,0.1353811149032992
+"OnlineSecurity=Yes, PhoneService=Yes, StreamingMovies=Yes",3,948,0.1348122866894198
+"OnlineBackup=Yes, PhoneService=Yes, StreamingMovies=Yes, StreamingTV=Yes",4,945,0.13438566552901024
+"StreamingMovies=Yes, StreamingTV=Yes, TechSupport=Yes",3,944,0.1342434584755404
+"OnlineSecurity=Yes, PhoneService=Yes, TechSupport=Yes",3,930,0.13225255972696245
+"OnlineSecurity=Yes, PhoneService=Yes, StreamingTV=Yes",3,925,0.1315415244596132
+"DeviceProtection=Yes, OnlineBackup=Yes, StreamingMovies=Yes",3,914,0.12997724687144482
+"DeviceProtection=Yes, OnlineBackup=Yes, StreamingTV=Yes",3,907,0.12898179749715585
+"MultipleLines=Yes, OnlineBackup=Yes, StreamingTV=Yes",3,902,0.1282707622298066
+"MultipleLines=Yes, OnlineBackup=Yes, PhoneService=Yes, StreamingTV=Yes",4,902,0.1282707622298066
+"MultipleLines=Yes, OnlineBackup=Yes, StreamingMovies=Yes",3,897,0.12755972696245735
+"MultipleLines=Yes, OnlineBackup=Yes, PhoneService=Yes, StreamingMovies=Yes",4,897,0.12755972696245735
+"InternetService=DSL, OnlineSecurity=Yes, PhoneService=Yes",3,895,0.12727531285551763
+"InternetService=DSL, PhoneService=Yes, TechSupport=Yes",3,887,0.12613765642775882
+"InternetService=Fiber optic, OnlineBackup=Yes, StreamingTV=Yes",3,884,0.12571103526734925
+"InternetService=Fiber optic, OnlineBackup=Yes, PhoneService=Yes, StreamingTV=Yes",4,884,0.12571103526734925
+"InternetService=Fiber optic, OnlineBackup=Yes, StreamingMovies=Yes",3,880,0.12514220705346984
+"InternetService=Fiber optic, OnlineBackup=Yes, PhoneService=Yes, StreamingMovies=Yes",4,880,0.12514220705346984
+"InternetService=Fiber optic, TechSupport=Yes",2,866,0.12315130830489192
+"InternetService=Fiber optic, PhoneService=Yes, TechSupport=Yes",3,866,0.12315130830489192
+"DeviceProtection=Yes, StreamingMovies=Yes, TechSupport=Yes",3,865,0.12300910125142207
+"PhoneService=Yes, StreamingMovies=Yes, StreamingTV=Yes, TechSupport=Yes",4,851,0.12101820250284415
+"DeviceProtection=Yes, StreamingTV=Yes, TechSupport=Yes",3,841,0.11959613196814561
+"InternetService=Fiber optic, OnlineSecurity=Yes",2,839,0.11931171786120591
+"InternetService=Fiber optic, OnlineSecurity=Yes, PhoneService=Yes",3,839,0.11931171786120591
+"DeviceProtection=Yes, MultipleLines=Yes, OnlineBackup=Yes",3,835,0.1187428896473265
+"DeviceProtection=Yes, MultipleLines=Yes, OnlineBackup=Yes, PhoneService=Yes",4,835,0.1187428896473265
+"DeviceProtection=Yes, MultipleLines=Yes, StreamingMovies=Yes, StreamingTV=Yes",4,825,0.11732081911262798
+"DeviceProtection=Yes, OnlineBackup=Yes, PhoneService=Yes, StreamingTV=Yes",4,820,0.11660978384527873
+"DeviceProtection=Yes, OnlineBackup=Yes, PhoneService=Yes, StreamingMovies=Yes",4,819,0.11646757679180887
+"DeviceProtection=Yes, InternetService=Fiber optic, StreamingMovies=Yes, StreamingTV=Yes",4,801,0.11390784982935154
+"InternetService=DSL, OnlineBackup=Yes, PhoneService=Yes",3,796,0.11319681456200227
+"OnlineSecurity=Yes, StreamingMovies=Yes, StreamingTV=Yes",3,774,0.11006825938566553
+"DeviceProtection=Yes, PhoneService=Yes, StreamingMovies=Yes, TechSupport=Yes",4,763,0.10850398179749715
+"DeviceProtection=Yes, InternetService=DSL, PhoneService=Yes",3,758,0.1077929465301479
+"DeviceProtection=Yes, InternetService=Fiber optic, OnlineBackup=Yes",3,750,0.10665529010238908
+"DeviceProtection=Yes, InternetService=Fiber optic, OnlineBackup=Yes, PhoneService=Yes",4,750,0.10665529010238908
+"DeviceProtection=Yes, PhoneService=Yes, StreamingTV=Yes, TechSupport=Yes",4,745,0.10594425483503982
+"OnlineBackup=Yes, StreamingTV=Yes, TechSupport=Yes",3,740,0.10523321956769056
+"DeviceProtection=Yes, OnlineBackup=Yes, StreamingMovies=Yes, StreamingTV=Yes",4,740,0.10523321956769056
+"DeviceProtection=Yes, OnlineSecurity=Yes, StreamingMovies=Yes",3,739,0.1050910125142207
+"OnlineBackup=Yes, StreamingMovies=Yes, TechSupport=Yes",3,736,0.10466439135381114
+"DeviceProtection=Yes, InternetService=Fiber optic, MultipleLines=Yes, StreamingTV=Yes",4,735,0.1045221843003413
+"DeviceProtection=Yes, InternetService=Fiber optic, MultipleLines=Yes, StreamingMovies=Yes",4,731,0.10395335608646189
+"DeviceProtection=Yes, OnlineBackup=Yes, TechSupport=Yes",3,724,0.10295790671217292
+"InternetService=DSL, OnlineSecurity=Yes, TechSupport=Yes",3,722,0.10267349260523322
+"MultipleLines=Yes, StreamingMovies=Yes, TechSupport=Yes",3,721,0.10253128555176337
+"MultipleLines=Yes, PhoneService=Yes, StreamingMovies=Yes, TechSupport=Yes",4,721,0.10253128555176337
+"DeviceProtection=Yes, OnlineSecurity=Yes, StreamingTV=Yes",3,712,0.1012514220705347
+"DeviceProtection=Yes, OnlineSecurity=Yes, TechSupport=Yes",3,711,0.10110921501706485
+"MultipleLines=Yes, StreamingTV=Yes, TechSupport=Yes",3,711,0.10110921501706485
+"MultipleLines=Yes, OnlineBackup=Yes, StreamingMovies=Yes, StreamingTV=Yes",4,711,0.10110921501706485
+"MultipleLines=Yes, PhoneService=Yes, StreamingTV=Yes, TechSupport=Yes",4,711,0.10110921501706485
+"DeviceProtection=Yes, StreamingMovies=Yes, StreamingTV=Yes, TechSupport=Yes",4,705,0.10025597269624574

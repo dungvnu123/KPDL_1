@@ -1,0 +1,25 @@
+﻿rule,antecedents,consequents,antecedent_len,support,confidence,lift,leverage,conviction,matched_customers,target_customers
+"{MonthlyCharges=Low, PhoneService=Yes, TotalCharges=Medium} → {Churn=No}","MonthlyCharges=Low, PhoneService=Yes, TotalCharges=Medium",Churn=No,3,0.102531285552,0.974324324324,1.327028597453,0.025267475451,10.351625651159,740,721
+{Contract=Two year} → {Churn=No},Contract=Two year,Churn=No,1,0.23279294653,0.971513353116,1.323200057933,0.05686116272,9.330160338453,1685,1637
+"{InternetService=No, Partner=Yes} → {Churn=No}","InternetService=No, Partner=Yes",Churn=No,2,0.100113765643,0.960436562074,1.308113481407,0.023580829421,6.717944568671,733,704
+"{InternetService=DSL, TenureGroup=49-72m} → {Churn=No}","InternetService=DSL, TenureGroup=49-72m",Churn=No,2,0.107224118316,0.956852791878,1.303232390565,0.024948601614,6.159957839791,788,754
+"{InternetService=DSL, TotalCharges=High} → {Churn=No}","InternetService=DSL, TotalCharges=High",Churn=No,2,0.111348122867,0.95487804878,1.300542792761,0.025731468431,5.890369892076,820,783
+"{MonthlyCharges=Low, TotalCharges=Medium} → {Churn=No}","MonthlyCharges=Low, TotalCharges=Medium",Churn=No,2,0.128839590444,0.944734098019,1.286726743612,0.028709868975,4.809203747827,959,906
+"{PaperlessBilling=No, TenureGroup=49-72m} → {Churn=No}","PaperlessBilling=No, TenureGroup=49-72m",Churn=No,2,0.121160409556,0.944567627494,1.286500010951,0.026982089677,4.79476109215,902,852
+"{Dependents=Yes, TenureGroup=49-72m} → {Churn=No}","Dependents=Yes, TenureGroup=49-72m",Churn=No,2,0.113907849829,0.939038686987,1.278969600405,0.024845647105,4.359895970071,853,801
+"{MonthlyCharges=Low, Partner=Yes, PhoneService=Yes} → {Churn=No}","MonthlyCharges=Low, Partner=Yes, PhoneService=Yes",Churn=No,3,0.109072810011,0.937652811736,1.277082039924,0.023664976684,4.26298266747,818,767
+"{TechSupport=Yes, TenureGroup=49-72m} → {Churn=No}","TechSupport=Yes, TenureGroup=49-72m",Churn=No,2,0.139931740614,0.934472934473,1.272751050787,0.029987427052,4.056109956967,1053,984
+"{OnlineSecurity=Yes, TenureGroup=49-72m} → {Churn=No}","OnlineSecurity=Yes, TenureGroup=49-72m",Churn=No,2,0.1393629124,0.933333333333,1.271198915359,0.029731830501,3.986774744027,1050,980
+"{OnlineSecurity=Yes, TechSupport=Yes, TotalCharges=High} → {Churn=No}","OnlineSecurity=Yes, TechSupport=Yes, TotalCharges=High",Churn=No,3,0.105091012514,0.931904161412,1.269252384864,0.022293443041,3.903101693844,793,739
+"{PaymentMethod=Bank transfer (automatic), TenureGroup=49-72m} → {Churn=No}","PaymentMethod=Bank transfer (automatic), TenureGroup=49-72m",Churn=No,2,0.10039817975,0.926509186352,1.261904435101,0.020837337457,3.616574232082,762,706
+{InternetService=No} → {Churn=No},InternetService=No,Churn=No,1,0.200085324232,0.925657894737,1.260744976911,0.041381281863,3.575160832402,1520,1407
+"{Dependents=Yes, MonthlyCharges=Low} → {Churn=No}","Dependents=Yes, MonthlyCharges=Low",Churn=No,2,0.1106370876,0.921800947867,1.255491819757,0.022514579863,3.398826145413,844,778
+"{InternetService=DSL, OnlineBackup=Yes, PhoneService=Yes} → {Churn=No}","InternetService=DSL, OnlineBackup=Yes, PhoneService=Yes",Churn=No,3,0.103953356086,0.918341708543,1.250780339816,0.020842554951,3.254843791021,796,731
+"{InternetService=DSL, Partner=Yes, PhoneService=Yes} → {Churn=No}","InternetService=DSL, Partner=Yes, PhoneService=Yes",Churn=No,3,0.1106370876,0.909941520468,1.23933929342,0.021366063767,2.951248836488,855,778
+"{OnlineSecurity=Yes, TechSupport=Yes} → {Churn=No}","OnlineSecurity=Yes, TechSupport=Yes",Churn=No,2,0.141780432309,0.909671532847,1.238971570594,0.027346464917,2.942427689868,1096,997
+"{OnlineSecurity=Yes, TotalCharges=High} → {Churn=No}","OnlineSecurity=Yes, TotalCharges=High",Churn=No,2,0.158845278726,0.905186385737,1.232862805444,0.030002654855,2.803236486684,1234,1117
+{TenureGroup=49-72m} → {Churn=No},TenureGroup=49-72m,Churn=No,1,0.28811149033,0.904868244752,1.232429497791,0.054336259498,2.793861862872,2239,2026
+"{InternetService=DSL, OnlineSecurity=Yes} → {Churn=No}","InternetService=DSL, OnlineSecurity=Yes",Churn=No,2,0.151308304892,0.904761904762,1.232284662848,0.028521493164,2.790742320819,1176,1064
+"{InternetService=DSL, TechSupport=Yes} → {Churn=No}","InternetService=DSL, TechSupport=Yes",Churn=No,2,0.150739476678,0.902896081772,1.229743414104,0.028161486059,2.737119034788,1174,1060
+"{MonthlyCharges=Low, Partner=Yes} → {Churn=No}","MonthlyCharges=Low, Partner=Yes",Churn=No,2,0.130688282139,0.901864573111,1.228338500507,0.024293927419,2.708348976109,1019,919
+"{TechSupport=Yes, TotalCharges=High} → {Churn=No}","TechSupport=Yes, TotalCharges=High",Churn=No,2,0.163253697383,0.901806755695,1.228259753254,0.030339061899,2.706754266212,1273,1148

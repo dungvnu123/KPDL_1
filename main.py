@@ -1,13 +1,16 @@
 import argparse
+import math
 import sys
 from dataclasses import replace
 from pathlib import Path
 
+import matplotlib
+
 sys.path.insert(0, str(Path(__file__).resolve().parent / "src"))
 
 from telco_arm import Settings, run
-from telco_arm.analysis import readable_rules
 from telco_arm.pipeline import export_figures, export_tables
+from telco_arm.reporting import export_report, render_report
 
 
 def parse_args() -> argparse.Namespace:
@@ -23,7 +26,23 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--churn-confidence", type=float, default=defaults.churn.min_confidence)
     parser.add_argument("--no-figures", action="store_true")
     parser.add_argument("--top", type=int, default=10)
-    return parser.parse_args()
+    parser.add_argument("--demographic-support", type=float, default=defaults.questions.demographic_support)
+    parser.add_argument("--demographic-confidence", type=float, default=defaults.questions.demographic_confidence)
+    parser.add_argument("--min-group-customers", type=int, default=defaults.questions.min_group_customers)
+    parser.add_argument("--recommendations-per-customer", type=int, default=defaults.questions.recommendations_per_customer)
+    args = parser.parse_args()
+    for name in ("min_support", "churn_support", "demographic_support"):
+        if not 0 < getattr(args, name) <= 1:
+            parser.error(f"--{name.replace('_', '-')} must be in (0, 1]")
+    for name in ("min_confidence", "churn_confidence", "demographic_confidence"):
+        if not 0 <= getattr(args, name) <= 1:
+            parser.error(f"--{name.replace('_', '-')} must be in [0, 1]")
+    if not math.isfinite(args.min_lift) or args.min_lift < 0:
+        parser.error("--min-lift must be finite and nonnegative")
+    for name in ("max_len", "top", "min_group_customers", "recommendations_per_customer"):
+        if getattr(args, name) < 1:
+            parser.error(f"--{name.replace('_', '-')} must be at least 1")
+    return args
 
 
 def build_settings(args: argparse.Namespace) -> Settings:
@@ -39,33 +58,30 @@ def build_settings(args: argparse.Namespace) -> Settings:
             max_len=args.max_len,
         ),
         churn=replace(defaults.churn, min_support=args.churn_support, min_confidence=args.churn_confidence),
+        questions=replace(
+            defaults.questions,
+            demographic_support=args.demographic_support,
+            demographic_confidence=args.demographic_confidence,
+            min_group_customers=args.min_group_customers,
+            recommendations_per_customer=args.recommendations_per_customer,
+        ),
     )
 
 
-def print_section(title: str, rules, top: int) -> None:
-    print(f"\n{title} ({len(rules):,} rules)")
-    print("-" * len(title))
-    if rules.empty:
-        print("No rules satisfy the thresholds.")
-        return
-    columns = ["rule", "support", "confidence", "lift"]
-    print(readable_rules(rules.head(top))[columns].to_string(index=False, max_colwidth=110))
-
-
 def main() -> None:
+    matplotlib.use("Agg")
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8")
     args = parse_args()
     settings = build_settings(args)
     result = run(settings)
 
-    print(f"Customers: {len(result.customers):,} | Items: {result.onehot.shape[1]} | "
-          f"Churn rate: {result.churn_rate:.2%} | Frequent itemsets: {len(result.itemsets):,}")
-    print_section("Service usage rules", result.service_rules, args.top)
-    print_section("Churn rules (-> Churn=Yes)", result.churn_rules, args.top)
-    print_section("Retention rules (-> Churn=No)", result.retention_rules, args.top)
-
     tables = export_tables(result, settings.paths.tables_dir)
     figures = [] if args.no_figures else export_figures(result, settings.paths.figures_dir)
-    print(f"\nSaved {len(tables)} tables to {settings.paths.tables_dir}")
+    reports = export_report(result, settings.paths.output_dir, args.top)
+    print(render_report(result, args.top))
+    print(f"Saved report: {reports[0]}")
+    print(f"Saved {len(tables)} tables to {settings.paths.tables_dir}")
     if figures:
         print(f"Saved {len(figures)} figures to {settings.paths.figures_dir}")
 

@@ -57,6 +57,14 @@ def _wrap(label: str, width: int) -> str:
     return "\n".join(textwrap.wrap(label, width=width))
 
 
+def _empty_figure(title: str) -> Figure:
+    fig, ax = plt.subplots(figsize=(8, 4))
+    ax.text(0.5, 0.5, "No rules satisfy the thresholds", ha="center", va="center", transform=ax.transAxes)
+    ax.set_title(title)
+    ax.axis("off")
+    return fig
+
+
 def _hbar(ax: plt.Axes, labels: list[str], values: np.ndarray, color: str, fmt: str) -> None:
     positions = np.arange(len(labels))[::-1]
     ax.barh(positions, values, color=color, height=0.7, edgecolor=SURFACE, linewidth=2)
@@ -116,6 +124,8 @@ def plot_churn_rate_by_feature(rates: pd.DataFrame, baseline: float, ncols: int 
 
 
 def plot_rules_scatter(rules: pd.DataFrame, title: str = "Association rules: support vs confidence") -> Figure:
+    if rules.empty:
+        return _empty_figure(title)
     fig, ax = plt.subplots(figsize=(8, 5))
     order = rules.sort_values("lift")
     points = ax.scatter(
@@ -136,6 +146,8 @@ def plot_rules_scatter(rules: pd.DataFrame, title: str = "Association rules: sup
 
 def plot_top_rules(rules: pd.DataFrame, metric: str = "lift", top_n: int = 15, title: str | None = None,
                    color: str = SERIES[0], show_consequent: bool = True) -> Figure:
+    if rules.empty:
+        return _empty_figure(title or f"Top rules by {metric}")
     data = rules.nlargest(top_n, metric)
     labels = [
         _wrap(format_itemset(a) + (f"  →  {format_itemset(c)}" if show_consequent else ""), 70)
@@ -151,6 +163,8 @@ def plot_top_rules(rules: pd.DataFrame, metric: str = "lift", top_n: int = 15, t
 
 
 def plot_rule_network(rules: pd.DataFrame, top_n: int = 30, title: str = "Item association network") -> Figure:
+    if rules.empty:
+        return _empty_figure(title)
     data = rules[rules["consequents"].map(len) == 1].nlargest(top_n, "lift")
     graph = nx.DiGraph()
     for row in data.itertuples():
@@ -159,6 +173,8 @@ def plot_rule_network(rules: pd.DataFrame, top_n: int = 30, title: str = "Item a
             weight = max(row.lift, graph.edges[source, target]["lift"] if graph.has_edge(source, target) else 0)
             graph.add_edge(source, target, lift=weight)
 
+    if not len(graph):
+        return _empty_figure(title)
     degree = dict(graph.in_degree())
     inner = sorted(node for node in graph.nodes if degree[node])
     outer = sorted(node for node in graph.nodes if not degree[node])
@@ -233,3 +249,33 @@ def save_figure(fig: Figure, path: Path) -> Path:
     fig.savefig(path, dpi=150, bbox_inches="tight")
     plt.close(fig)
     return path
+
+
+def plot_demographic_bundles(bundles: pd.DataFrame) -> Figure:
+    singles = bundles.loc[bundles["demographic_len"] == 1]
+    data = singles.drop_duplicates("demographics").sort_values("confidence", ascending=False)
+    fig, ax = plt.subplots(figsize=(11, max(3.5, 0.65 * len(data) + 1.5)))
+    if data.empty:
+        ax.text(0.5, 0.5, "No demographic bundles satisfy the thresholds", ha="center", transform=ax.transAxes)
+    else:
+        labels = [f"{r.demographics}\n{_wrap(r.bundle, 48)}" for r in data.itertuples()]
+        _hbar(ax, labels, data["confidence"].to_numpy(), SERIES[0], ".1%")
+    ax.set_title("Q5: Most common service bundle per demographic group")
+    ax.set_xlabel("Customers using the bundle / customers in the group")
+    ax.xaxis.set_major_formatter(PercentFormatter(1.0))
+    ax.tick_params(axis="y", labelsize=8.5)
+    fig.tight_layout()
+    return fig
+
+
+def plot_upgrade_recommendations(recommendations: pd.DataFrame) -> Figure:
+    counts = recommendations.groupby("recommended_service").size().sort_values(ascending=False)
+    fig, ax = plt.subplots(figsize=(9, max(3.5, 0.5 * len(counts) + 1.5)))
+    if counts.empty:
+        ax.text(0.5, 0.5, "No eligible recommendations", ha="center", transform=ax.transAxes)
+    else:
+        _hbar(ax, list(counts.index), counts.to_numpy(), SERIES[2], ",d")
+    ax.set_title("Q6: Recommended add-ons for retained customers")
+    ax.set_xlabel("Customers receiving the recommendation")
+    fig.tight_layout()
+    return fig

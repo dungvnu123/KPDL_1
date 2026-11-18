@@ -38,6 +38,14 @@ def one_hot_encode(transactions: list[frozenset[str]]) -> pd.DataFrame:
 
 
 def usage_items(onehot: pd.DataFrame, spec: FeatureSpec, exclude: tuple[str, ...] = ()) -> pd.DataFrame:
-    absent = {_item(column, "No") for column in spec.addon_columns}
-    keep = [column for column in onehot.columns if column not in absent and column not in exclude]
+    """Only subscribed services; demographics, billing and outcomes are not services."""
+    services = set(service_items(spec))
+    keep = [column for column in onehot.columns if column in services and column not in exclude]
     return onehot[keep]
+
+
+def service_items(spec: FeatureSpec) -> tuple[str, ...]:
+    return (
+        "PhoneService=Yes", "InternetService=DSL", "InternetService=Fiber optic",
+        *(_item(column, "Yes") for column in spec.addon_columns),
+    )

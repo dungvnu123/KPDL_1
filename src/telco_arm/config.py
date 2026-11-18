@@ -43,6 +43,7 @@ class FeatureSpec:
     tenure_bins: tuple[float, ...] = (-1, 12, 24, 48, 72)
     tenure_labels: tuple[str, ...] = ("0-12m", "13-24m", "25-48m", "49-72m")
     charge_labels: tuple[str, ...] = ("Low", "Medium", "High")
+    demographic_columns: tuple[str, ...] = ("gender", "SeniorCitizen", "Partner", "Dependents")
     binary_columns: tuple[str, ...] = (
         "gender",
         "SeniorCitizen",
@@ -69,10 +70,21 @@ class FeatureSpec:
 
 
 @dataclass(frozen=True)
+class QuestionParams:
+    demographic_support: float = 0.02
+    demographic_confidence: float = 0.20
+    min_group_customers: int = 100
+    max_demographic_len: int = 2
+    max_bundle_len: int = 3
+    recommendations_per_customer: int = 3
+
+
+@dataclass(frozen=True)
 class Settings:
     paths: Paths = field(default_factory=Paths)
     features: FeatureSpec = field(default_factory=FeatureSpec)
     mining: MiningParams = field(default_factory=MiningParams)
+    questions: QuestionParams = field(default_factory=QuestionParams)
     churn: TargetParams = field(
         default_factory=lambda: TargetParams("Churn=Yes", min_support=0.03, min_confidence=0.55, min_lift=2.0)
     )

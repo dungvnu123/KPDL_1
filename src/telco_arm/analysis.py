@@ -61,6 +61,9 @@ def churn_rate_by(df: pd.DataFrame, columns: Iterable[str], target: str = "Churn
 
 
 def rule_coverage(rules: pd.DataFrame, onehot: pd.DataFrame, target: str, top_n: int = 10) -> pd.DataFrame:
+    columns = ["rule", "customers", "target_hits", "target_rate", "cumulative_recall"]
+    if rules.empty or target not in onehot:
+        return pd.DataFrame(columns=columns)
     target_mask = onehot[target].to_numpy(dtype=bool)
     covered = pd.Series(False, index=onehot.index)
     rows = []
@@ -76,7 +79,7 @@ def rule_coverage(rules: pd.DataFrame, onehot: pd.DataFrame, target: str, top_n:
                 "cumulative_recall": round(float((covered & target_mask).sum() / target_mask.sum()), 4),
             }
         )
-    return pd.DataFrame(rows)
+    return pd.DataFrame(rows, columns=columns)
 
 
 def item_frequency_in_rules(rules: pd.DataFrame, side: str = "antecedents") -> pd.Series:

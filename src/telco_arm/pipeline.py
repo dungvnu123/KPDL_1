@@ -5,9 +5,10 @@ import pandas as pd
 
 from . import analysis, visualization
 from .apriori import apriori
-from .config import Settings, TargetParams
+from .config import FeatureSpec, Settings, TargetParams
 from .data_loader import load_dataset
-from .preprocessing import build_transactions, discretize, one_hot_encode, usage_items
+from .preprocessing import build_transactions, discretize, one_hot_encode, service_items, usage_items
+from .questions import QuestionAnswers, answer_questions
 from .rules import generate_rules, mine_target_rules
 
 PROFILE_COLUMNS = (
@@ -22,24 +23,7 @@ PROFILE_COLUMNS = (
     "TenureGroup",
 )
 
-SERVICE_ITEMS = (
-    "PhoneService=Yes",
-    "MultipleLines=Yes",
-    "InternetService=DSL",
-    "InternetService=Fiber optic",
-    "OnlineSecurity=Yes",
-    "OnlineBackup=Yes",
-    "DeviceProtection=Yes",
-    "TechSupport=Yes",
-    "StreamingTV=Yes",
-    "StreamingMovies=Yes",
-    "Contract=Month-to-month",
-    "Contract=One year",
-    "Contract=Two year",
-    "PaperlessBilling=Yes",
-    "PaymentMethod=Electronic check",
-    "Churn=Yes",
-)
+SERVICE_ITEMS = service_items(FeatureSpec())
 
 
 @dataclass
@@ -51,6 +35,8 @@ class PipelineResult:
     service_rules: pd.DataFrame
     churn_rules: pd.DataFrame
     retention_rules: pd.DataFrame
+    settings: Settings
+    answers: QuestionAnswers
 
     @property
     def churn_rate(self) -> float:
@@ -73,6 +59,8 @@ def _mine_target(onehot: pd.DataFrame, params: TargetParams, settings: Settings)
 def run(settings: Settings | None = None) -> PipelineResult:
     settings = settings or Settings()
     customers = load_dataset(settings.paths.raw_data, settings.features)
+    if customers.empty:
+        raise ValueError("No customers remain after cleaning the dataset")
     transactions = build_transactions(customers, settings.features)
     onehot = one_hot_encode(transactions)
 
@@ -80,14 +68,19 @@ def run(settings: Settings | None = None) -> PipelineResult:
     itemsets = apriori(behavior, settings.mining.min_support, settings.mining.max_len)
     service_rules = generate_rules(itemsets, settings.mining.min_confidence, settings.mining.min_lift)
 
+    customers = customers.assign(TenureGroup=discretize(customers, settings.features)["TenureGroup"])
+    churn_rules = _mine_target(onehot, settings.churn, settings)
+    retention_rules = _mine_target(onehot, settings.retention, settings)
     return PipelineResult(
-        customers=customers.assign(TenureGroup=discretize(customers, settings.features)["TenureGroup"]),
+        customers=customers,
         transactions=transactions,
         onehot=onehot,
         itemsets=itemsets,
         service_rules=service_rules,
-        churn_rules=_mine_target(onehot, settings.churn, settings),
-        retention_rules=_mine_target(onehot, settings.retention, settings),
+        churn_rules=churn_rules,
+        retention_rules=retention_rules,
+        settings=settings,
+        answers=answer_questions(customers, onehot, itemsets, service_rules, churn_rules, retention_rules, settings),
     )
 
 
@@ -101,6 +94,7 @@ def export_tables(result: PipelineResult, directory: Path) -> list[Path]:
         "retention_rules.csv": analysis.readable_rules(result.retention_rules),
         "churn_rule_coverage.csv": analysis.rule_coverage(result.churn_rules, result.onehot, "Churn=Yes"),
         "churn_rate_by_feature.csv": analysis.churn_rate_by(result.customers, PROFILE_COLUMNS),
+        **result.answers.tables(),
     }
     paths = []
     for name, table in tables.items():
@@ -138,5 +132,7 @@ def export_figures(result: PipelineResult, directory: Path) -> list[Path]:
         "10_retention_top_rules.png": visualization.plot_top_rules(
             result.retention_rules, title="Top retention rules by lift (→ Churn=No)", show_consequent=False,
         ),
+        "11_demographic_bundles.png": visualization.plot_demographic_bundles(result.answers.demographics),
+        "12_upgrade_recommendations.png": visualization.plot_upgrade_recommendations(result.answers.recommendations),
     }
     return [visualization.save_figure(fig, directory / name) for name, fig in figures.items()]
